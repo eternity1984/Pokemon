@@ -1,7 +1,5 @@
 package com.example.pokemon.di;
 
-import androidx.core.content.PermissionChecker;
-
 import com.example.pokemon.network.PokeApiService;
 
 import javax.inject.Singleton;
@@ -17,7 +15,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by Abhinav Singh on 17,June,2020
  */
-
 @Module
 @InstallIn(ApplicationComponent.class)
 public class NetworkModule {
@@ -27,7 +24,7 @@ public class NetworkModule {
     public static PokeApiService providePokemonApiService(){
 
         return  new Retrofit.Builder()
-                .baseUrl(" https://pokeapi.co/api/v2/")
+                .baseUrl("https://pokeapi.co/api/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build()
