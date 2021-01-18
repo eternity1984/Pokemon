@@ -16,18 +16,17 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by Abhinav Singh on 17,June,2020
  */
 @Module
-@InstallIn(ApplicationComponent.class)
-public class NetworkModule {
+@InstallIn(ApplicationComponent::class)
+class NetworkModule {
 
     @Provides
     @Singleton
-    public static PokeApiService providePokemonApiService(){
-
-        return  new Retrofit.Builder()
+    fun providePokemonApiService(): PokeApiService {
+        return Retrofit.Builder()
                 .baseUrl("https://pokeapi.co/api/v2/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
                 .build()
-                .create(PokeApiService.class);
+                .create(PokeApiService::class.java)
     }
 }

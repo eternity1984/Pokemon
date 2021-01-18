@@ -8,6 +8,7 @@ import retrofit2.http.GET
  * Created by Abhinav Singh on 17,June,2020
  */
 interface PokeApiService {
+
     @get:GET("pokemon")
     val pokemons: Observable<PokemonResponse>
 }
